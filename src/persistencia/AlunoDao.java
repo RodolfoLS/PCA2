@@ -10,7 +10,7 @@ public class AlunoDao extends Dao {
 		boolean success = false;
 		try {
 			open();
-			stmt = conn.prepareStatement("Insert into aluno values (?,?,?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
+			stmt = conn.prepareStatement("Insert into aluno (cpf, nome, grauescola, email, senha, sexo) values (?,?,?,?,?,?)");
 			stmt.setString(1, f.getCpf());
 			stmt.setString(2, f.getNome());
 			stmt.setString(3, f.getGrauescola());

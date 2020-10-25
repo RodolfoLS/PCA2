@@ -13,7 +13,7 @@ import persistencia.AlunoDao;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/controlealuno")
+@WebServlet({"/controlealuno", "/cadastraralu.html"})
 public class ControleAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,7 +37,7 @@ public class ControleAluno extends HttpServlet {
 		HttpServletResponse response) throws ServletException, IOException {
 			try {
 				String url = request.getServletPath();
-				if(url.equalsIgnoreCase("/cadastrarcliente")){
+				if(url.equalsIgnoreCase("/cadastroaluno.html")){
 					cadastrar(request,response);
 				}else {
 					response.sendRedirect("/");

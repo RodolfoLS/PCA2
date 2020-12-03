@@ -2,52 +2,22 @@ package dominio;
 
 public class Aluno {
 
-	private String cpf;
+	private Integer id;
 	private String nome;
 	private String grauescola;
 	private String email;
 	private String senha;
 	private String sexo;
 	
-	
-	
-	public Aluno() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Integer getId() {
+		return id;
 	}
-
-
-	public Aluno(String cpf, String nome, String grauescola, String email, String senha, String sexo) {
-		super();
-		this.cpf = cpf;
-		this.nome = nome;
-		this.grauescola = grauescola;
-		this.email = email;
-		this.senha = senha;
-		this.sexo = sexo;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-
-
-
-
 	public String getNome() {
 		return nome;
 	}
-	
-	
-	
-	public String getCpf() {
-		return cpf;
-	}
-
-
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -77,3 +47,4 @@ public class Aluno {
 	}
 	
 }
+	

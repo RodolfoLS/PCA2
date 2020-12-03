@@ -2,41 +2,33 @@ package persistencia;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Dao {
 
-	Connection conn;
-	PreparedStatement stmt;
+	static Connection conn;
 	ResultSet rs;
 	
-	private final String URL = "jdbc:postgresql://localhost:5432/postgres";
-	private final String USER ="postgres";
-	private final String PASS = "160196";
+	private final static String URL = "jdbc:postgresql://localhost:5432/postgres";
+	private final static String USER ="postgres";
+	private final static String PASS = "160196";
 	
-	public void open() throws Exception {
+	public static Connection getConnection() {
+		Connection conn = null;
+		try {
 		Class.forName("org.postgresql.Driver");
 		conn = DriverManager.getConnection(URL, USER, PASS);
+		System.out.println("Conectado com sucesso!");
+	}catch (SQLException e) {
+		System.out.println("Erro - Conexão"+e.getMessage());
+	}catch(ClassNotFoundException e) {
+		System.out.println("Erro - Driver"+e.getMessage());
+	}return conn;
 	}
-	
-	public void close() throws SQLException {
-		conn.close();
-	}
-	
+
+
 	public static void main(String[] args) {
-		try{
-			Dao d = new Dao();
-			d.open();
-			d.close();
-			System.out.println("Conectei...");
-		}catch (Exception e){
-			e.printStackTrace();
-			System.out.println("Não conectei...");
-		}
-		
-		
+		Dao.getConnection();
 	}
-	
 }
